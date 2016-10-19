@@ -1,3 +1,9 @@
+singularity (2.2-ql.1) stable; urgency=medium
+
+  * Initial Qlustar package based on upstream d/dir
+
+ -- Roland Fehrenbacher <rf@q-leap.de>  Wed, 19 Oct 2016 12:27:37 +0200
+
 singularity (2.0-1) UNRELEASED; urgency=medium
 
   * New upstream release

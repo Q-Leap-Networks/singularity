@@ -1,13 +1,21 @@
 #!/usr/bin/make -f
 
-#DH_VERBOSE=1
-export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+include /usr/share/dpkg/buildflags.mk
+include /usr/share/dpkg/pkg-info.mk
+
+DEBVENDOR := $(shell dpkg-vendor --query Vendor)
+ifeq ($(DEBVENDOR), Qlustar)
+    # Qlustar specific stuff
+    include /usr/share/ql-deb-utils/Makefile
+endif
 
 %:
 	dh $@  --with autoreconf
 
 override_dh_installdocs:
 	dh_installdocs README.md AUTHORS
+
+override_dh_auto_test:
 
 override_dh_fixperms:
 	dh_fixperms
